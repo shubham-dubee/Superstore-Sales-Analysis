@@ -32,8 +32,9 @@ SELECT
     RANK() OVER (ORDER BY SUM(Sales) DESC) AS Customer_Rank
 FROM superstore
 GROUP BY 1;
-
-*###* B.Top Customer by Region
+```
+### B.Top Customer by Region
+```sql
 WITH RegionalRanking AS (
     SELECT 
         Region,
@@ -46,7 +47,9 @@ WITH RegionalRanking AS (
 SELECT Region, "Customer Name", Total_Sales
 FROM RegionalRanking
 WHERE rn = 1;
-
+```
+### C. Customer Revenue Contribution Percentage
+```sql
 SELECT 
     "Customer Name",
     SUM(Sales) AS Total_Sales,
@@ -55,11 +58,5 @@ FROM superstore
 GROUP BY 1
 ORDER BY Total_Sales DESC
 LIMIT 5;
-
-
-FROM superstore
-GROUP BY 1
-ORDER BY Total_Sales DESC
-LIMIT 5;
-
+```
 
