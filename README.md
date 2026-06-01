@@ -33,6 +33,7 @@ SELECT
 FROM superstore
 GROUP BY 1;
 
+### B.Top Customer by Region
 WITH RegionalRanking AS (
     SELECT 
         Region,
