@@ -34,6 +34,7 @@ FROM superstore
 GROUP BY 1;
 ```
 ### B.Top Customer by Region
+This query uses a Common Table Expression (CTE) and a window function to find the single highest-spending customer in each geographic region.
 ```sql
 WITH RegionalRanking AS (
     SELECT 
@@ -49,6 +50,7 @@ FROM RegionalRanking
 WHERE rn = 1;
 ```
 ### C. Customer Revenue Contribution Percentage
+This query calculates the exact percentage of global superstore sales contributed by each top customer to evaluate revenue concentration risk.
 ```sql
 SELECT 
     "Customer Name",
