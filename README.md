@@ -16,6 +16,8 @@ I analyzed a retail dataset with 9,800 sales records to answer three main busine
 * **Top Products:** *Technology* items brought in the most revenue (~$827k), closely followed by *Furniture* (~$728k).
 * **Top Location:** The *West* region is our strongest market, bringing in ~$710k. 
 * **Low Risk Profile:** Our top customer (*Sean Miller*) spent $25,043, representing only **1.11%** of total revenue. This means our income is safely distributed across a broad consumer base rather than relying heavily on single buyers.
+* ![Superstore Sales Dashboard](Screenshot 2026-06-01 175327.png)
+* 
 
 * ## 4. SQL Analysis & Queries
 Here are the core SQLite queries I executed within Google Colab to perform advanced customer segmentations:
