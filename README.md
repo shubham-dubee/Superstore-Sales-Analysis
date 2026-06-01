@@ -20,6 +20,9 @@ I analyzed a retail dataset with 9,800 sales records to answer three main busine
 * ## 4. SQL Analysis & Queries
 Here are the core SQLite queries I executed within Google Colab to perform advanced customer segmentations:
 
+## 4. SQL Analysis & Queries
+Here are the core SQLite queries I executed within Google Colab to perform advanced customer segmentations:
+
 ### A. Customer Ranking by Revenue
 This query aggregates total sales per customer and ranks them from highest to lowest.
 ```sql
@@ -30,9 +33,6 @@ SELECT
 FROM superstore
 GROUP BY 1;
 
-### B. Top Customer by Region
-Using a Common Table Expression (CTE) and `ROW_NUMBER()`, this query isolates the number-one customer for each geographic market.
-```sql
 WITH RegionalRanking AS (
     SELECT 
         Region,
@@ -46,13 +46,16 @@ SELECT Region, "Customer Name", Total_Sales
 FROM RegionalRanking
 WHERE rn = 1;
 
-### C. Customer Revenue Contribution Percentage
-This query utilizes `SUM() OVER()` as a window function to calculate exactly what percentage of global sales a single customer represents.
-```sql
 SELECT 
     "Customer Name",
     SUM(Sales) AS Total_Sales,
     (SUM(Sales) / SUM(SUM(Sales)) OVER ()) * 100 AS Contribution_Percentage
+FROM superstore
+GROUP BY 1
+ORDER BY Total_Sales DESC
+LIMIT 5;
+
+
 FROM superstore
 GROUP BY 1
 ORDER BY Total_Sales DESC
