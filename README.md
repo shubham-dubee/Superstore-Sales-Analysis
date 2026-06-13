@@ -20,7 +20,7 @@ The project includes data cleaning, SQL analysis, Power BI star schema modeling,
 | --------------------------------------------- | ----------------------- |
 | `superstore-sales-analysis-dashboard.pbix`    | Power BI dashboard file |
 | `superstore-analysis-sql.ipynb`               | SQL analysis notebook   |
-| `superstore-analysis.xlsx`                    | Cleaned Excel dataset   |
+| `superstore-analysis-with-dashboard.xlsx`     | Excel analysis,dashboard|
 | `dashboard-screenshot.png`                    | Dashboard screenshot    |
 | `superstore-sales-analysis-final-report.pdf`  | Final project report    |
 | `superstore-sales-analysis-final-report.docx` | Editable project report |
