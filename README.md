@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-This project analyzes Superstore sales data using **Excel, SQL, and Power BI**. The main objective is to understand sales performance across regions, categories, customer segments, sub-categories, shipping modes, products, and customers.
+This project analyzes Superstore sales data using **Excel, SQL, and Power BI**. The objective of this project is to identify sales performance across regions, categories, customer segments, sub-categories, shipping modes, products, and customers.
 
 The project includes data cleaning, SQL analysis, Power BI star schema modeling, DAX measures, dashboard creation, and business insight generation.
 
@@ -16,15 +16,15 @@ The project includes data cleaning, SQL analysis, Power BI star schema modeling,
 
 ## Project Files
 
-| File Name                                     | Description             |
-| --------------------------------------------- | ----------------------- |
-| `superstore-sales-analysis-dashboard.pbix`    | Power BI dashboard file |
-| `superstore-analysis-sql.ipynb`               | SQL analysis notebook   |
-| `superstore-analysis-with-dashboard.xlsx`     | Excel analysis,dashboard|
-| `dashboard-screenshot.png`                    | Dashboard screenshot    |
-| `superstore-sales-analysis-final-report.pdf`  | Final project report    |
-| `superstore-sales-analysis-final-report.docx` | Editable project report |
-| `README.md`                                   | Project documentation   |
+| File Name                                     | Description                               |
+| --------------------------------------------- | ----------------------------------------- |
+| `Superstore_Sales_Analysis_Dashboard.pbix`    | Power BI dashboard file                   |
+| `Superstore_Analysis_sql.ipynb`               | SQL analysis notebook                     |
+| `Superstore_Analysis_With_Dashboard.xlsx`     | Cleaned Excel dataset and Excel dashboard |
+| `dashboard-screenshot.png`                    | Power BI dashboard screenshot             |
+| `superstore-sales-analysis-final-report.pdf`  | Final project report                      |
+| `superstore-sales-analysis-final-report.docx` | Editable project report                   |
+| `README.md`                                   | Project documentation                     |
 
 ---
 
@@ -81,8 +81,8 @@ The dataset was cleaned and prepared before analysis. The main steps included:
 
 * Checked dataset shape and column names
 * Verified total rows and columns
-* Checked date columns and corrected data types
-* Used Excel Pivot Tables for cross-checking results
+* Checked and corrected date columns
+* Used Excel Pivot Tables for result validation
 * Loaded the cleaned dataset into Google Colab
 * Created an SQLite database for SQL analysis
 * Imported the dataset into Power BI Desktop
