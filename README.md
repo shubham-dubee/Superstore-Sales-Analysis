@@ -1,4 +1,5 @@
 # Superstore Sales Analysis Dashboard
+Dataset Source: Kaggle - Sample Superstore Dataset
 
 ## Project Overview
 
