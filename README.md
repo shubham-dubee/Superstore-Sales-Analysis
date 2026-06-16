@@ -1,5 +1,4 @@
 # Superstore Sales Analysis Dashboard
-Dataset Source: Kaggle - Sample Superstore Dataset
 
 ## Project Overview
 
@@ -46,6 +45,16 @@ The project includes data cleaning, SQL analysis, Power BI star schema modeling,
 
 The dataset contains Superstore sales records.
 
+## Dataset Source / Credit
+
+The dataset used in this project was taken from Kaggle.
+
+**Dataset Name:** Superstore Sales Dataset
+**Source:** Kaggle
+**Dataset Link:** [Superstore Sales Dataset](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting)
+
+Credit goes to the original dataset uploader/owner on Kaggle. This project is created only for learning, portfolio building, and data analysis practice.
+
 ### Dataset Size
 
 | Metric        | Value |
@@ -78,7 +87,9 @@ The dataset contains Superstore sales records.
 
 ## Data Cleaning and Preparation
 
-The dataset was cleaned and prepared before analysis. The main steps included:
+The dataset was cleaned and prepared before analysis.
+
+The main steps included:
 
 * Checked dataset shape and column names
 * Verified total rows and columns
@@ -331,7 +342,6 @@ SQL analysis was performed in **Google Colab** using **SQLite**.
 
 ```python
 from google.colab import files
-
 uploaded = files.upload()
 ```
 
@@ -340,11 +350,9 @@ import pandas as pd
 import sqlite3
 
 file_name = list(uploaded.keys())[0]
-
 df = pd.read_excel(file_name, sheet_name='Dataset')
 
 conn = sqlite3.connect(':memory:')
-
 df.to_sql('superstore', conn, index=False, if_exists='replace')
 
 df.head()
@@ -364,7 +372,7 @@ for col in df.columns:
 ### 1. Total Sales
 
 ```sql
-SELECT
+SELECT 
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore;
 ```
@@ -380,7 +388,7 @@ Result:
 ### 2. Total Orders
 
 ```sql
-SELECT
+SELECT 
     COUNT(DISTINCT "Order ID") AS Total_Orders
 FROM superstore;
 ```
@@ -396,7 +404,7 @@ Result:
 ### 3. Total Customers
 
 ```sql
-SELECT
+SELECT 
     COUNT(DISTINCT "Customer ID") AS Total_Customers
 FROM superstore;
 ```
@@ -412,7 +420,7 @@ Result:
 ### 4. Sales by Region
 
 ```sql
-SELECT
+SELECT 
     Region,
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore
@@ -434,7 +442,7 @@ Result:
 ### 5. Sales by Category
 
 ```sql
-SELECT
+SELECT 
     Category,
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore
@@ -455,7 +463,7 @@ Result:
 ### 6. Sales by Segment
 
 ```sql
-SELECT
+SELECT 
     Segment,
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore
@@ -476,7 +484,7 @@ Result:
 ### 7. Sales by Sub-Category
 
 ```sql
-SELECT
+SELECT 
     "Sub-Category",
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore
@@ -504,7 +512,7 @@ Result:
 ### 8. Monthly Sales Trend
 
 ```sql
-SELECT
+SELECT 
     strftime('%Y-%m', "Order Date") AS Order_Month,
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore
@@ -512,23 +520,19 @@ GROUP BY Order_Month
 ORDER BY Order_Month;
 ```
 
-Purpose:
-
-This query was used to analyze monthly sales movement over time.
+Purpose: This query was used to analyze monthly sales movement over time.
 
 ---
 
 ### 9. Top 10 Customers by Sales
 
 ```sql
-SELECT
+SELECT 
     "Customer ID",
     "Customer Name",
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore
-GROUP BY
-    "Customer ID",
-    "Customer Name"
+GROUP BY "Customer ID", "Customer Name"
 ORDER BY Total_Sales DESC
 LIMIT 10;
 ```
@@ -553,7 +557,7 @@ Result:
 ### 10. Customer Ranking using RANK()
 
 ```sql
-SELECT
+SELECT 
     "Customer ID",
     "Customer Name",
     ROUND(SUM(Sales), 2) AS Total_Sales,
@@ -561,39 +565,29 @@ SELECT
         ORDER BY SUM(Sales) DESC
     ) AS Customer_Rank
 FROM superstore
-GROUP BY
-    "Customer ID",
-    "Customer Name"
+GROUP BY "Customer ID", "Customer Name"
 ORDER BY Customer_Rank
 LIMIT 10;
 ```
 
-Purpose:
-
-This query ranks customers based on total sales using the SQL window function `RANK()`.
+Purpose: This query ranks customers based on total sales using the SQL window function `RANK()`.
 
 ---
 
 ### 11. Top Customer by Region using CTE and ROW_NUMBER()
 
 ```sql
-WITH customer_region_sales AS
-(
-    SELECT
+WITH customer_region_sales AS (
+    SELECT 
         Region,
         "Customer ID",
         "Customer Name",
         ROUND(SUM(Sales), 2) AS Total_Sales
     FROM superstore
-    GROUP BY
-        Region,
-        "Customer ID",
-        "Customer Name"
+    GROUP BY Region, "Customer ID", "Customer Name"
 ),
-
-ranked_customers AS
-(
-    SELECT
+ranked_customers AS (
+    SELECT 
         Region,
         "Customer ID",
         "Customer Name",
@@ -604,8 +598,7 @@ ranked_customers AS
         ) AS Region_Customer_Rank
     FROM customer_region_sales
 )
-
-SELECT
+SELECT 
     Region,
     "Customer ID",
     "Customer Name",
@@ -629,19 +622,15 @@ Result:
 ### 12. Customer Revenue Contribution Percentage
 
 ```sql
-WITH customer_sales AS
-(
-    SELECT
+WITH customer_sales AS (
+    SELECT 
         "Customer ID",
         "Customer Name",
         SUM(Sales) AS Total_Sales
     FROM superstore
-    GROUP BY
-        "Customer ID",
-        "Customer Name"
+    GROUP BY "Customer ID", "Customer Name"
 )
-
-SELECT
+SELECT 
     "Customer ID",
     "Customer Name",
     ROUND(Total_Sales, 2) AS Total_Sales,
@@ -674,14 +663,12 @@ Result:
 ### 13. Top 10 Products by Sales
 
 ```sql
-SELECT
+SELECT 
     "Product ID",
     "Product Name",
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore
-GROUP BY
-    "Product ID",
-    "Product Name"
+GROUP BY "Product ID", "Product Name"
 ORDER BY Total_Sales DESC
 LIMIT 10;
 ```
@@ -706,7 +693,7 @@ Result:
 ### 14. Sales by Ship Mode
 
 ```sql
-SELECT
+SELECT 
     "Ship Mode",
     ROUND(SUM(Sales), 2) AS Total_Sales
 FROM superstore
@@ -729,9 +716,9 @@ Result:
 
 The Superstore Sales Analysis shows total sales of **2,261,536.78** from **4,922 orders**, **793 customers**, and **1,861 products**.
 
-The **West region** is the highest-performing region, while **Technology** is the top-performing product category. The **Consumer segment** contributes the highest revenue among all customer segments. At the sub-category level, **Phones** and **Chairs** generated the highest sales. **Standard Class** is the dominant shipping mode.
+The **West region** is the highest-performing region, while **Technology** is the top-performing product category. The **Consumer segment** contributes the highest revenue among all customer segments. At the sub-category level, **Phones** and **Chairs** generated the highest sales. **Standard Class** is the dominant shipping mode. The highest-value customer is **Sean Miller**, but his contribution is only around **1.11%** of total sales.
 
-The highest-value customer is **Sean Miller**, but his contribution is only around **1.11%** of total sales. This shows that revenue is distributed across many customers and the business is not heavily dependent on a single customer.
+This shows that revenue is distributed across many customers and the business is not heavily dependent on a single customer.
 
 ---
 
@@ -756,9 +743,7 @@ The highest-value customer is **Sean Miller**, but his contribution is only arou
 ## Author
 
 **Shubham Kumar Dubey**
-
 Aspiring Data Analyst skilled in Excel, SQL, Power BI, Power Query, DAX, and dashboard reporting.
 
-GitHub: `shubham-dubee`
-
-LinkedIn: `shubham-kumar-dubey`
+**GitHub:** [shubham-dubee](https://github.com/shubham-dubee)
+**LinkedIn:** [shubham-kumar-dubey](https://www.linkedin.com/in/shubham-kumar-dubey-34b1b33b1)
