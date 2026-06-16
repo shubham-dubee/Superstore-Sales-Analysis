@@ -8,6 +8,14 @@ The project includes data cleaning, SQL analysis, Power BI star schema modeling,
 
 ---
 
+## Business Problem
+
+Retail businesses need to understand which regions, product categories, customer segments, shipping modes, and customers are contributing the most to sales. Without proper analysis, it becomes difficult to identify high-performing areas, low-performing regions, top customers, and important sales trends.
+
+The objective of this project is to analyze Superstore sales data and generate business insights that can help improve sales performance, customer targeting, product focus, and regional decision-making.
+
+---
+
 ## Dashboard Preview
 
 ![Superstore Dashboard](dashboard-screenshot.png)
@@ -16,15 +24,15 @@ The project includes data cleaning, SQL analysis, Power BI star schema modeling,
 
 ## Project Files
 
-| File Name                                     | Description                               |
-| --------------------------------------------- | ----------------------------------------- |
-| `Superstore_Sales_Analysis_Dashboard.pbix`    | Power BI dashboard file                   |
-| `Superstore_Analysis_sql.ipynb`               | SQL analysis notebook                     |
-| `Superstore_Analysis_With_Dashboard.xlsx`     | Cleaned Excel dataset and Excel dashboard |
-| `dashboard-screenshot.png`                    | Power BI dashboard screenshot             |
-| `superstore-sales-analysis-final-report.pdf`  | Final project report                      |
-| `superstore-sales-analysis-final-report.docx` | Editable project report                   |
-| `README.md`                                   | Project documentation                     |
+| File Name                                                                                  | Description                               |
+| ------------------------------------------------------------------------------------------ | ----------------------------------------- |
+| [Superstore_Sales_Analysis_Dashboard.pbix](Superstore_Sales_Analysis_Dashboard.pbix)       | Power BI dashboard file                   |
+| [Superstore_Analysis_sql.ipynb](Superstore_Analysis_sql.ipynb)                             | SQL analysis notebook                     |
+| [Superstore_Analysis_With_Dashboard.xlsx](Superstore_Analysis_With_Dashboard.xlsx)         | Cleaned Excel dataset and Excel dashboard |
+| [dashboard-screenshot.png](dashboard-screenshot.png)                                       | Power BI dashboard screenshot             |
+| [superstore-sales-analysis-final-report.pdf](superstore-sales-analysis-final-report.pdf)   | Final project report                      |
+| [superstore-sales-analysis-final-report.docx](superstore-sales-analysis-final-report.docx) | Editable project report                   |
+| [README.md](README.md)                                                                     | Project documentation                     |
 
 ---
 
@@ -49,9 +57,8 @@ The dataset contains Superstore sales records.
 
 The dataset used in this project was taken from Kaggle.
 
-**Dataset Name:** Superstore Sales Dataset
+**Dataset Name:** [Superstore Sales Dataset](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting)
 **Source:** Kaggle
-**Dataset Link:** [Superstore Sales Dataset](https://www.kaggle.com/datasets/rohitsahoo/sales-forecasting)
 
 Credit goes to the original dataset uploader/owner on Kaggle. This project is created only for learning, portfolio building, and data analysis practice.
 
@@ -737,6 +744,12 @@ This shows that revenue is distributed across many customers and the business is
 * Power BI Dashboard Design
 * Business Insight Generation
 * GitHub Documentation
+
+---
+
+## Project Status
+
+Completed.
 
 ---
 
